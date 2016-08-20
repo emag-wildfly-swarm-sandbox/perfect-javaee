@@ -15,6 +15,7 @@
 
   <modules>
     <module>decorator</module>
+    <module>cdi-event</module>
   </modules>
 
 </project>
