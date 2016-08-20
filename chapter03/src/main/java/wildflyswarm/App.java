@@ -2,14 +2,14 @@ package wildflyswarm;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
-import org.wildfly.swarm.container.Container;
+import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.jgroups.JGroupsFraction;
 import org.wildfly.swarm.undertow.WARArchive;
 
 public class App {
 
   public static void main(String[] args) throws Exception {
-    Container container = new Container(args);
+    Swarm swarm = new Swarm(args);
 
     WARArchive archive = ShrinkWrap.create(WARArchive.class);
     archive.addPackage("perfectjavaee.chapter03");
@@ -18,8 +18,8 @@ public class App {
     archive.addAsWebInfResource(new ClassLoaderAsset("WEB-INF/web.xml", App.class.getClassLoader()), "web.xml");
     archive.setContextRoot("/firstcdi");
 
-    container.fraction(JGroupsFraction.defaultFraction());
-    container.start().deploy(archive);
+    swarm.fraction(JGroupsFraction.defaultFraction());
+    swarm.start().deploy(archive);
   }
 
 }
