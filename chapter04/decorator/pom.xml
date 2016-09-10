@@ -7,7 +7,7 @@
   <parent>
     <groupId>perfect-javaee-wildfly-swarm</groupId>
     <artifactId>chapter04</artifactId>
-    <version>2016.8.1</version>
+    <version>2016.9</version>
   </parent>
 
   <artifactId>decorator</artifactId>
@@ -18,12 +18,12 @@
       <dependency>
         <groupId>perfect-javaee-wildfly-swarm</groupId>
         <artifactId>point-processor</artifactId>
-        <version>2016.8.1</version>
+        <version>2016.9</version>
       </dependency>
       <dependency>
         <groupId>perfect-javaee-wildfly-swarm</groupId>
         <artifactId>sale-point-decorator</artifactId>
-        <version>2016.8.1</version>
+        <version>2016.9</version>
       </dependency>
 
       <dependency>

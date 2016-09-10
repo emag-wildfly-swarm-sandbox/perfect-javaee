@@ -6,7 +6,7 @@
 
   <groupId>perfect-javaee-wildfly-swarm</groupId>
   <artifactId>perfect-javaee-wildfly-swarm-parent</artifactId>
-  <version>2016.8.1</version>
+  <version>2016.9</version>
   <packaging>pom</packaging>
 
   <properties>
