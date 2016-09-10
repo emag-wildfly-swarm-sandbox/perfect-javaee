@@ -26,4 +26,15 @@ public class MessageService {
       .getResultList();
   }
 
+  public Message findById(Long id) {
+    return entityManager.find(Message.class, id);
+  }
+
+  public List<Message> findByMessage(String message) {
+    return entityManager
+      .createQuery("SELECT x FROM Message x WHERE x.message LIKE :message", Message.class)
+      .setParameter("message", "%" + message + "%")
+      .getResultList();
+  }
+
 }
