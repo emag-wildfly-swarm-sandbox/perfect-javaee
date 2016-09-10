@@ -5,8 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.PostLoad;
+import javax.persistence.PostPersist;
+import javax.persistence.PostRemove;
+import javax.persistence.PostUpdate;
+import javax.persistence.PrePersist;
+import javax.persistence.PreRemove;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 @Entity
 @Table(
@@ -15,11 +23,48 @@ import java.io.Serializable;
 )
 public class Message implements Serializable {
 
+  private static final Logger LOGGER = Logger.getLogger(Message.class.getName());
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private String message;
+
+  @PostLoad
+  public void postLoad() {
+    LOGGER.info(() -> this + " was loaded!");
+  }
+
+  @PrePersist
+  public void prePersist() {
+    LOGGER.info(() -> this + " is persisting...");
+  }
+
+  @PostPersist
+  public void postPersist() {
+    LOGGER.info(() -> this + " was persisted!");
+  }
+
+  @PreUpdate
+  public void preUpdate() {
+    LOGGER.info(() -> this + " is updating...");
+  }
+
+  @PostUpdate
+  public void postUpdate() {
+    LOGGER.info(() -> this + " was updated!");
+  }
+
+  @PreRemove
+  public void preRemove() {
+    LOGGER.info(() -> this + " is removing...");
+  }
+
+  @PostRemove
+  public void postRemove() {
+    LOGGER.info(() -> this + " was removed!");
+  }
 
   public Long getId() {
     return id;
